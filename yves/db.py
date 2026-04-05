@@ -1,3 +1,5 @@
+
+#Later we will switch to postgresql
 import sqlite3
 
 def init_db():

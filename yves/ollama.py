@@ -1,13 +1,16 @@
+import os
 import requests
 
-def ollama_request(model, prompt):
+OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434")
+
+
+def ollama_request(model, messages):
     response = requests.post(
-        "http://localhost:11434/api/chat",
+        f"{OLLAMA_URL}/api/chat",
         json={
-            "model": "qwen2.5:3b",
-            "messages": messages, #messages is just a placeholder rn for the actual sent messahe
-            "stream": False #streaming is just for live text updates from the model
+            "model": model,
+            "messages": messages,
+            "stream": False
         }
-        
     )
-    return response.json()["message"]["content"] 
+    return response.json()["message"]["content"]

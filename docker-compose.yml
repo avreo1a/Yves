@@ -1,0 +1,32 @@
+services:
+  ollama:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    # Uncomment for GPU support:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+
+  yves:
+    build: .
+    ports:
+      - "5000:5000"
+    env_file:
+      - yves/.env
+    environment:
+      - OLLAMA_URL=http://ollama:11434
+    volumes:
+      - yves_data:/app/yves.db
+    depends_on:
+      - ollama
+
+volumes:
+  ollama_data:
+  yves_data:
