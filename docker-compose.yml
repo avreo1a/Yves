@@ -5,6 +5,7 @@ services:
       - "11434:11434"
     volumes:
       - ollama_data:/root/.ollama
+    entrypoint: ["/bin/sh", "-c", "ollama serve & sleep 5 && ollama pull qwen2.5:3b && wait"]
     # Uncomment for GPU support:
     # deploy:
     #   resources:
