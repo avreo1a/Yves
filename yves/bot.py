@@ -8,7 +8,7 @@ from ollama import ollama_request
 load_dotenv()
 
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-MODEL = "qwen2.5:3b"
+MODEL = "qwen2.5:14b"
 
 with open("systemPrompt.txt", "r") as f:
     SYSTEM_PROMPT = f.read()

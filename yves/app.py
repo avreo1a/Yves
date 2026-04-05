@@ -4,7 +4,7 @@ from ollama import ollama_request
 
 app = Flask(__name__)
 
-MODEL = "qwen2.5:3b"
+MODEL = "qwen2.5:14b"
 
 with open("systemPrompt.txt", "r") as f:
     SYSTEM_PROMPT = f.read()
