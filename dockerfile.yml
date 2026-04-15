@@ -1,0 +1,6 @@
+FROM python:3.11-slim
+WORKDIR /app
+COPY yves/requiremets.txt .
+RUN pip install --no-cache-dir -r requiremets.txt
+COPY yves/ .
+CMD ["python", "bot.py"]
