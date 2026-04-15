@@ -5,7 +5,7 @@ services:
       - "11434:11434"
     volumes:
       - ollama_data:/root/.ollama
-    entrypoint: ["/bin/sh", "-c", "ollama serve & sleep 5 && ollama pull qwen2.5:3b && wait"]
+    entrypoint: ["/bin/sh", "-c", "ollama serve & sleep 5 && ollama pull qwen2.5:14b && wait"]
     deploy:
       resources:
         reservations:
@@ -21,7 +21,7 @@ services:
     environment:
       - OLLAMA_URL=http://ollama:11434
     volumes:
-      - yves_data:/app/yves.db
+      - yves_data:/app/data
     depends_on:
       - ollama
 

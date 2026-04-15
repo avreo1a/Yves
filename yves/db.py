@@ -1,5 +1,5 @@
 
-#Later we will switch to postgresql
+#Later we will switch to postgresql if it gets hectic
 import sqlite3
 
 def init_db():
